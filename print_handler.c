@@ -8,6 +8,8 @@
  * @width: gets width
  * @precision: gets Precision
  * @size: gets Size specification
+ * @flags: parameter
+ * @buffer: char array
  *
  * Return: 1 or 2;
  */
@@ -15,7 +17,7 @@
 int print_handler(const char *lyt, int *ind, va_list list, char buffer[],
 		int flags, int width, int precision, int size)
 {
-	int s; u_len = 0, printed_chars = -1;
+	int s, u_len = 0, printed_chars = -1;
 	lyt_t lyt_types[] = {
 		{'c', print_char}, {'s', print_string}, {'%', print_percent},
 		{'i', print_int}, {'d', print_int}, {'b', print_binary},
@@ -26,7 +28,7 @@ int print_handler(const char *lyt, int *ind, va_list list, char buffer[],
 
 	for (s = 0; lyt_types[s].lyt != '\0'; s++)
 	{
-		if(lyt[*ind] == lyt_types[s].lyt)
+		if (lyt[*ind] == lyt_types[s].lyt)
 		{
 			return (lyt_types[s].fcn(list, buffer, flags, width, precision, size));
 		}
