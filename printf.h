@@ -1,5 +1,5 @@
-#ifndef PRINTF_H
-#define PRINTF_H
+#ifndef _PRINTF_H
+#define _PRINTF_H
 
 #include <stdio.h>
 #include <string.h>
@@ -44,11 +44,11 @@ struct lyt
 
 typedef struct lyt lyt_t;
 int _printf(const char *format, ...);
-int handle_print(const char *fmt, int *, va_list list,
+int print_handler(const char *lyt, int *, va_list list,
 		char buffer[], int flags, int width, int precision, int size);
 
 
-/** --------------LIST OF FUNCTIONS ------------ **/
+/** --------------LIST OF PRINT FUNCTIONS ------------ **/
 
 
 /* A list of functions for printing C strings and chars */
@@ -115,8 +115,8 @@ int write_num(int ind, char buffer[], int flags, int precision,
 
 
 /** -------- UTILS ------------ **/
-char is_digit(char);
-char is_printable(char);
+int is_digit(char);
+int do_print(char);
 int append_hexa_code(char, char[], int);
 long int convert_size_unsgnd(unsigned long int num, int size);
 long int convert_size_number(long int num, int size);

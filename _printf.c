@@ -42,7 +42,7 @@ int _printf(const char *format, ...)
 			size = get_size(format, &s);
 			++s;
 
-			printed = handle_print(format, &s, list, buffer, flags,
+			printed = print_handler(format, &s, list, buffer, flags,
 					width, precision, size);
 
 			if (printed == -1)
